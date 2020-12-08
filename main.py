@@ -1,4 +1,4 @@
-from year2020.day6 import *
+from year2020.day7 import *
 
 if __name__ == "__main__":
-    day6()
+    day7()
