@@ -1,4 +1,4 @@
-from year2020.day13 import *
+from year2022.day8 import *
 
 if __name__ == "__main__":
-    day13()
+    run()

@@ -1,11 +1,13 @@
 import re
 
+import helpers
+
 
 def day4():
     with open("year2020/day4/input.txt", "r") as f:
         full_string = f.read()
 
-    full_array = split_on_empty_lines(full_string)
+    full_array = helpers.split_on_empty_lines(full_string)
 
     print(part1(full_array))
     print(part2(full_array))
@@ -106,11 +108,3 @@ def is_valid_passport_validation(array_of_key_values):
         if not pass_check:
             return False
     return True
-
-
-def split_on_empty_lines(s):
-
-    # greedily match 2 or more new-lines
-    blank_line_regex = r"(?:\r?\n){2,}"
-
-    return re.split(blank_line_regex, s.strip())
