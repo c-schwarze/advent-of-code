@@ -1,6 +1,7 @@
 import helpers
 
-def day1():
+
+def run():
     with open("year2022/day1/input.txt", "r") as f:
         full_string = f.read()
 
@@ -32,7 +33,6 @@ def part1(elves):
 
 # answer = 205615
 def part2(elves):
-
     # create data
     elf_holder = []
     for index, elf in enumerate(elves):
@@ -48,6 +48,7 @@ def part2(elves):
         total_calories += elf['calories']
 
     return total_calories
+
 
 def sum_elf_food(elf):
     elf_sum = 0
