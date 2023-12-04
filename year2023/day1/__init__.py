@@ -15,7 +15,7 @@ def run():
     print("Sum of all calibration values: ")
     print(part1(lines))
     print("--- PART 2 ---")
-    print("TODO: ")
+    print("Also read numbers by strings")
     print(part2(lines))
 
 
@@ -34,42 +34,46 @@ def part1(lines):
     return total
 
 
-# answer =
+# answer = 54885
 def part2(lines):
     # we are going to do a greedy approach.
 
     total = 0
     for line in lines:
         line_string = str(line)
-        try:
-            first_num = convertTextToNum(re.search(r'(\d+|one|two|three|four|five|six|seven|eight|nine)', line_string).group())
-            # TODO - this one is the problem
-            second_num = convertTextToNum(re.search(r'(\d+|enin|thgie|neves|xis|evif|ruof|eerht|owt|eno)', line_string[::-1]).group())
-            total += int(first_num+second_num)
-        except:
-            continue
+        first_num = convertTextToNum(re.search(r'(\d+|one|two|three|four|five|six|seven|eight|nine)', line_string).group(), False)
+        second_num = convertTextToNum(re.search(r'(\d+|enin|thgie|neves|xis|evif|ruof|eerht|owt|eno)', line_string[::-1]).group(), True)
+        total += int(first_num+second_num)
 
     return total
 
 
-def convertTextToNum(string):
-    if string == 'one':
+def convertTextToNum(string, reverse_if_not_num: bool):
+    converted_string = string
+    if reverse_if_not_num:
+        try:
+            int(converted_string)
+        # todo - I should be adding a specific exception
+        except:
+            converted_string = converted_string[::-1]
+
+    if converted_string == 'one':
         return '1'
-    elif string == 'two':
+    elif converted_string == 'two':
         return '2'
-    elif string == 'three':
+    elif converted_string == 'three':
         return '3'
-    elif string == 'four':
+    elif converted_string == 'four':
         return '4'
-    elif string == 'five':
+    elif converted_string == 'five':
         return '5'
-    elif string == 'six':
+    elif converted_string == 'six':
         return '6'
-    elif string == 'seven':
+    elif converted_string == 'seven':
         return '7'
-    elif string == 'eight':
+    elif converted_string == 'eight':
         return '8'
-    elif string == 'nine':
+    elif converted_string == 'nine':
         return '9'
     else:
-        return string[0]
+        return converted_string[0]
