@@ -1,4 +1,4 @@
-from year2023.day2 import *
+from year2023.day5 import *
 
 
 if __name__ == "__main__":

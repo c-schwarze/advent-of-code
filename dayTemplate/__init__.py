@@ -8,9 +8,11 @@ def run():
     print("--- PART 1 ---")
     print("Title 1: ")
     print(part1(lines))
+    assert part1(lines) == 0
     print("--- PART 2 ---")
     print("Title 2: ")
     print(part2(lines))
+    assert part2(lines) == 0
 
 
 # answer =
